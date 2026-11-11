@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chiang Rai SmartTrip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="slides" aria-hidden="true">
+      <div class="slide on" style="background-image:url('images/A.jpg')" data-name="วัดร่องขุ่น"></div>
+      <div class="slide" style="background-image:url('images/C.jpg')" data-name="วัดร่องเสือเต้น"></div>
+      <div class="slide" style="background-image:url('images/D.jpg')" data-name="พิพิธภัณฑ์บ้านดำ"></div>
+    </div>
+    <nav class="bar">
+      <span class="brand">Chiang Rai SmartTrip</span>
+      <a class="bar-cta" href="#plan">วางแผนเที่ยว</a>
+    </nav>
+    <div class="hero-text">
+      <h1>เที่ยวเชียงรายวันเดียว<br>ให้คุ้มทุกนาที</h1>
+      <p>บอกความสนใจ งบ และเวลาที่มี แล้วรับแผนที่เริ่มจากหอนาฬิกา พร้อมเวลาไปถึง–ออก และค่าใช้จ่ายทุกจุด</p>
+      <a class="hero-cta" href="#plan">เริ่มวางแผนเที่ยว</a>
+    </div>
+    <p class="caption"><span id="slide-name">วัดร่องขุ่น</span> · ภาพจาก Wikimedia Commons</p>
+  </header>
+
+  <div class="plan-zone">
+  <section class="wrap plan-head" id="plan">
+    <h2>วางแผนเที่ยวของคุณ</h2>
+    <p>กรอกข้อมูลการเดินทาง แล้วรับแผนที่เริ่มจากหอนาฬิกาเชียงราย</p>
+  </section>
+  <main class="wrap layout">
+    <form id="form" class="panel" novalidate>
+      <fieldset class="field step" id="f-interests">
+        <legend><span class="num">1</span>สนใจเที่ยวแบบไหน <span class="hint">เลือกได้หลายอย่าง</span></legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="interests" value="nature" checked><span>ธรรมชาติ</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="culture" checked><span>วัฒนธรรม</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="art"><span>ศิลปะ</span></label>
+          <label class="chip"><input type="checkbox" name="interests" value="food"><span>อาหาร</span></label>
+        </div>
+        <p class="err" data-for="interests"></p>
+      </fieldset>
+
+      <div class="step">
+        <p class="step-title"><span class="num">2</span>งบและจำนวนคน</p>
+        <div class="row">
+          <div class="field">
+            <label for="budget">งบต่อคน</label>
+            <div class="combo"><input id="budget" name="budget" inputmode="decimal" value="300" autocomplete="off"><span class="unit">บาท</span></div>
+            <p class="err" data-for="budget"></p>
+          </div>
+          <div class="field">
+            <label for="people">ไปกี่คน</label>
+            <div class="combo"><input id="people" name="people" inputmode="numeric" value="2" autocomplete="off"><span class="unit">คน</span></div>
+            <p class="err" data-for="people"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="step-title"><span class="num">3</span>เวลา</p>
+        <div class="field">
+          <label for="start">ออกเดินทางกี่โมง</label>
+          <div class="combo">
+            <input id="start" name="startH" inputmode="numeric" placeholder="08" value="08" maxlength="2" autocomplete="off" aria-label="ชั่วโมงที่เริ่ม (00–23)">
+            <span class="unit">:</span>
+            <input name="startM" inputmode="numeric" placeholder="30" value="30" maxlength="2" autocomplete="off" aria-label="นาทีที่เริ่ม (00–59)">
+            <span class="unit">น.</span>
+          </div>
+          <p class="err" data-for="start"></p>
+        </div>
+        <div class="field">
+          <label for="duration">มีเวลาเที่ยวทั้งหมด</label>
+          <div class="combo">
+            <input id="duration" name="hours" inputmode="decimal" value="6" autocomplete="off" aria-label="ชั่วโมง">
+            <span class="unit">ชม.</span>
+            <input name="minutes" inputmode="numeric" value="0" autocomplete="off" aria-label="นาที">
+            <span class="unit">นาที</span>
+          </div>
+          <p class="err" data-for="duration"></p>
+        </div>
+      </div>
+
+      <fieldset class="field step" id="f-weather">
+        <legend><span class="num">4</span>วันนั้นฝนตกไหม</legend>
+        <div class="seg">
+          <label><input type="radio" name="weather" value="normal" checked><span>ไม่ตก</span></label>
+          <label><input type="radio" name="weather" value="rain"><span>ฝนตก</span></label>
+        </div>
+        <p class="err" data-for="weather"></p>
+      </fieldset>
+
+      <button type="submit" class="primary">สร้างแผนเที่ยว</button>
+      <p class="note">กดครั้งแรกแล้ว แก้ช่องไหนแผนก็อัปเดตเอง</p>
+    </form>
+
+    <section id="result" class="result" aria-live="polite">
+      <div class="empty">
+        <p>กรอกข้อมูลการเดินทาง แล้วกด <strong>สร้างแผนเที่ยว</strong></p>
+        <p class="muted">แอปจะลองทุกลำดับการเดินทางที่เป็นไปได้ แล้วเลือกแผนที่ได้สถานที่ตรงใจมากที่สุด</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot" id="foot"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="planner.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
